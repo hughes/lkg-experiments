@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" type="text/css" href="node_modules/dat.gui/build/dat.gui.css" />
+    </head>
+    <body>
+        <script type="x-shader/x-vertex" id="vertexshader">
+    
+            // switch on high precision floats
+            #ifdef GL_ES
+            precision highp float;
+            #endif
+
+            varying vec2 vUv;
+            varying vec3 norm;
+            
+            void main()
+            {
+                vUv = uv;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+                norm = normal;
+            }
+            
+        </script>
+        <script type="x-shader/x-fragment" id="fragmentshader">
+
+            #ifdef GL_ES
+            precision highp float;
+            #endif
+
+            varying vec2 vUv;
+            varying vec3 norm;
+            uniform sampler2D texture;
+            
+            void main()
+            {
+                // vec2 lookup = vec2(1.0-vUv.x, vUv.y);
+                //gl_FragColor 	= texture2D(texture, lookup); // vec4(1.0,0.0,1.0,1.0);
+                vec3 lookup = (norm + 1.0) / 2.0;
+                lookup.x = 1.0 - lookup.x;
+                float attenuation = lookup.z * lookup.z;
+                vec3 color = texture2D(texture, lookup.xy).rgb;
+                //vec3 color = vec3(1.0, 0.0, 0.0);
+                gl_FragColor = vec4(color * attenuation, 1.0);
+            }
+        
+        </script>
+        <script src="node_modules/three/build/three.js"></script>
+        <script src="node_modules/dat.gui/build/dat.gui.js"></script>
+        <script src="PMRemGenerator.js"></script>
+        <script src="PMRemCubeUVPacker.js"></script>
+        <script src="GLTFLoader.js"></script>
+        <script src="OrbitControls.js"></script>
+        <script src="HoloPlay/holoplay.js"></script>
+        
+		<video id="video" autoplay style="display:none"></video>
+        <script src="main.js"></script>
+    </body>
+</html>

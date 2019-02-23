@@ -1,0 +1,24 @@
+{
+  "name": "lkg-experiments",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "dat.gui": "^0.7.5",
+    "three": "^0.101.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hughes/lkg-experiments.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hughes/lkg-experiments/issues"
+  },
+  "homepage": "https://github.com/hughes/lkg-experiments#readme"
+}
