@@ -16,7 +16,7 @@ const params = {
         gltf.scene.children.forEach(child => {
             if(child.type === "Mesh" && child.name !== 'Suzanne') {
                 child.material = new THREE.MeshStandardMaterial( {
-                    color: new THREE.Color(Math.random(), Math.random(), Math.random()),
+                    color: new THREE.Color(Math.random() + 0.5, Math.random() + 0.5, Math.random()+0.5),
                     metalness: Math.random(),
                     roughness: Math.random(),
                     envMap: cubeRenderTarget.texture,

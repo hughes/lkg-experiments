@@ -1,7 +1,7 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="style.css" />
-        <link rel="stylesheet" type="text/css" href="node_modules/dat.gui/build/dat.gui.css" />
+        <link rel="stylesheet" type="text/css" href="/static/dat.gui.css" />
     </head>
     <body>
 <script type="x-shader/x-vertex" id="vertexshader">
@@ -45,12 +45,12 @@
     gl_FragColor = vec4(color * attenuation, 1.0);
   }
 </script>
-        <script src="node_modules/three/build/three.js"></script>
-        <script src="node_modules/dat.gui/build/dat.gui.js"></script>
-        <script src="PMRemGenerator.js"></script>
-        <script src="PMRemCubeUVPacker.js"></script>
-        <script src="GLTFLoader.js"></script>
-        <script src="HoloPlay/holoplay.js"></script>
+        <script src="/static/three.js"></script>
+        <script src="/static/dat.gui.js"></script>
+        <script src="/static/PMRemGenerator.js"></script>
+        <script src="/static/PMRemCubeUVPacker.js"></script>
+        <script src="/static/GLTFLoader.js"></script>
+        <script src="/static/holoplay.js"></script>
         
 		<video id="video" autoplay style="display:none"></video>
         <script src="main.js"></script>
