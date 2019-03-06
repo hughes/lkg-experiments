@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" type="text/css" href="/static/dat.gui.css" />
+    </head>
+    <body>
+        <script type="x-shader/x-vertex" id="vertexShader" src="shaders/vertex.glsl"></script>
+        <script type="x-shader/x-fragment" id="shipShader" src="shaders/ship.glsl"></script>
+        <script type="x-shader/x-fragment" id="shieldRingShader" src="shaders/shieldRing.glsl"></script>
+        <script src="/static/three.js"></script>
+        <script src="/static/dat.gui.js"></script>
+        <script src="/static/holoplay.js"></script>
+        <script src="/static/GLTFLoader.js"></script>
+        <script src="/static/OrbitControls.js"></script>
+        <script src="main.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-36226098-2"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-36226098-2');
+        </script>
+    </body>
+</html>

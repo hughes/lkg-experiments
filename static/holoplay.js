@@ -326,7 +326,7 @@ function HoloPlay(scene, camera, renderer, focalPointVector, constantCenter, hiR
     //*******LOGIC FOR CAPTURING MULTIPLE VIEWS******//
 
     //Render the different views
-    function captureViews(scene, camera)
+    function captureViews(scene, camera, renderer)
     {
         var origPosition = new THREE.Vector3(camera.position.x, camera.position.y, camera.position.z);
         var start = -viewCone/2;
@@ -424,7 +424,7 @@ function HoloPlay(scene, camera, renderer, focalPointVector, constantCenter, hiR
                 camera.updateProjectionMatrix();
             }
 
-            captureViews(scene, camera);
+            captureViews(scene, camera, renderer);
 
             renderer.render(finalRenderScene, finalRenderCamera);
         }
