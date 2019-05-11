@@ -255,14 +255,8 @@ function HoloPlay(scene, camera, renderer, focalPointVector, constantCenter, hiR
 			finished();
 		};
 		ws.onerror = function(event) {
-			if (confirm("Three.js driver not detected! Click OK to download. If you have already installed the driver, please make sure port 11222 is open.")){
-                if(OSName == "Windows"){
-				    window.location.href = "https://s3.amazonaws.com/static-files.lookingglassfactory.com/WebCalibrationBridge/LKG_ThreeJsDriver_Win.exe";
-                } else if(OSName == "MacOS"){
-                    window.location.href = "https://s3.amazonaws.com/static-files.lookingglassfactory.com/WebCalibrationBridge/LKG_ThreeJsDriver_Mac.pkg"
-                } else{
-                    alert("Only Windows and OSX operating systems are currently supported for the Three.js library.")
-                }
+			if (confirm("Three.js driver not detected! Click OK to learn more. If you have already installed the driver, please make sure port 11222 is open.")){
+			  window.location.href = "http://look.glass/threejsdriver";
 			}
 			finished();
 		};
