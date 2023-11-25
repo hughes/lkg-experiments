@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" type="text/css" href="/static/dat.gui.css" />
+    </head>
+    <body>
+<script type="x-shader/x-vertex" id="vertexshader">
+  #ifdef GL_ES
+  precision highp float;
+  #endif
+
+  varying vec2 vUv;
+  varying vec3 norm;
+    
+  void main()
+  {
+    vUv = uv;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+    norm = normal;
+  }  
+</script>
+<script type="x-shader/x-fragment" id="fragmentshader">
+  #ifdef GL_ES
+  precision highp float;
+  #endif
+
+  varying vec2 vUv;
+  varying vec3 norm;
+  uniform sampler2D texture;
+    
+  void main()
+  {
+    // use the xy normal to look up the texture position
+    // and convert the [-1, 1] range to [0, 1]
+    vec2 lookup = (norm.xy + 1.0) / 2.0;
+    
+    // generate an attenuation factor to darken the back
+    float attenuation = min(1.0, norm.z + 1.0);
+    
+    // flip the x component to mirror the image
+    lookup.x = 1.0 - lookup.x;
+    
+    // look up and output the attenuated texture color
+    vec3 color = texture2D(texture, lookup).rgb;
+    gl_FragColor = vec4(color * attenuation, 1.0);
+  }
+</script>
+        <script src="/static/three.js"></script>
+        <script src="/static/dat.gui.js"></script>
+        <script src="/static/PMRemGenerator.js"></script>
+        <script src="/static/PMRemCubeUVPacker.js"></script>
+        <script src="/static/GLTFLoader.js"></script>
+        <script src="/static/holoplay.js"></script>
+        
+		<video id="video" autoplay style="display:none"></video>
+        <script src="main.js"></script>
+    </body>
+</html>
